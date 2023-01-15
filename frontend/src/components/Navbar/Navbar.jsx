@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -6,8 +6,11 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Link } from "@mui/material";
+import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 
 const Navbar = () => {
+  const [openShoppingCart, setOpenShoppingCart] = useState(false);
+
   return (
     <div className="nav">
       <div className="wrapper">
@@ -50,13 +53,18 @@ const Navbar = () => {
             <SearchOutlinedIcon />
             <PersonOutlineOutlinedIcon />
             <FavoriteBorderOutlinedIcon />
-            <div className="cartIcon">
+            <div
+              className="cartIcon"
+              onClick={() => setOpenShoppingCart((prevState) => !prevState)}
+            >
               <ShoppingCartOutlinedIcon />
               <span>0</span>
             </div>
           </div>
         </div>
       </div>
+      {/* show/hide shopping cart */}
+      {openShoppingCart && <ShoppingCart />}
     </div>
   );
 };
