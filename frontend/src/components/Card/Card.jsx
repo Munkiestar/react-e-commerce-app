@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Card = ({ item }) => {
   const { img, img2, title, isNew, oldPrice, price, id } = item?.attributes;
 
-  console.log("item", item.attributes);
   const IMG = img.data.attributes?.url;
   const IMG2 = img2.data.attributes?.url;
   const TOKEN = import.meta.env.VITE_API_UPLOAD_URL;
