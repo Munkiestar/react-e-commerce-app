@@ -17,6 +17,7 @@ function Product(props) {
   const TOKEN = import.meta.env.VITE_API_UPLOAD_URL;
   const IMG = data?.attributes?.img?.data?.attributes?.url || "";
   const IMG2 = data?.attributes?.img2?.data?.attributes?.url || "";
+  const IMG3 = data?.attributes?.[selectedImg].data?.attributes?.url || "";
   return (
     <div className="product">
       {loading ? (
@@ -37,12 +38,7 @@ function Product(props) {
               />
             </div>
             <div className="mainImg">
-              <img
-                src={
-                  TOKEN + data?.attributes[selectedImg]?.data?.attributes?.url
-                }
-                alt=""
-              />
+              <img src={TOKEN + IMG3} alt="" />
             </div>
           </div>
           <div className="right">
